@@ -11,14 +11,14 @@ public class Main {
     Word gameWord = new Word();
     System.out.println("\nWelcome to Hangman! Would you like to play with easy words or hard words?\n\nType 'e' for easy or 'h' for hard.");
     String mode = input.nextLine();
-    if (mode.toLowerCase().equals("e") == true) {
+    if (mode.toLowerCase().equals("e")) {
       gameWord.getEasyWord();
       strikes = 6;
-    } else if (mode.toLowerCase().equals("h") == true) {
+    } else if (mode.toLowerCase().equals("h")) {
       gameWord.getHardWord();
       strikes = 10;
     } else {
-      System.err.println("\nLooks like you didn't indicate how difficult you want your word to be! I'll pick a word from the easy list for now.\n");
+      System.out.println("\nLooks like you didn't indicate how difficult you want your word to be! I'll pick a word from the easy list for now.\n");
       gameWord.getEasyWord();
       strikes = 6;
       }
@@ -33,7 +33,7 @@ public class Main {
     for (int c = 0; c < filled.size(); c++) {
       blankLetters.add("_");
     }
-    while (leftToGuess.equals(blankLetters) == false) {
+    while (!leftToGuess.equals(blankLetters)) {
       System.out.println("\n");
       for (int c = 0; c < filled.size(); c++) {
         if (leftToGuess.get(c) == "_") {
@@ -45,12 +45,12 @@ public class Main {
       System.out.println("\nGuess a letter or the whole word!");
       String guessedLetter = input.nextLine().toUpperCase();
       if (guessedLetter.length() < 1) {
-        System.err.println("You didn't enter anything. Try again.");
+        System.out.println("You didn't enter anything. Try again.");
       } else if (guessedLetter.length() > 1) {
-        System.out.println("\nAre you trying to guess the whole word? (y/n)");
+        System.out.println("\nAre you trying to guess the whole word?\nType 'y' for yes or 'n' for no.");
         String yesNo = input.nextLine().toLowerCase();
-        if (yesNo.equals("y") == true) {
-          if (guessedLetter.equals(randWord) == true) {
+        if (yesNo.equals("y")) {
+          if (guessedLetter.equals(randWord)) {
             break;
           } 
           else {
@@ -64,11 +64,11 @@ public class Main {
         else {
           System.out.println("You did not guess a letter or a word. Try again.");
         }
-      } else if (alpha.contains(guessedLetter.toLowerCase()) == false) {
+      } else if (!alpha.contains(guessedLetter.toLowerCase())) {
         System.out.println("Invalid entry. Try again.");
-      } else if (usedLetters.contains(guessedLetter) == true) {
+      } else if (usedLetters.contains(guessedLetter)) {
         System.out.println("\nYou already guessed this letter!");
-      } else if (leftToGuess.contains(guessedLetter) == true) {
+      } else if (leftToGuess.contains(guessedLetter)) {
         System.out.println("\nCorrect!");
         usedLetters.add(guessedLetter);
         Collections.replaceAll(leftToGuess, guessedLetter, "_");
