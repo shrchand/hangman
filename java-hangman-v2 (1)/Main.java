@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 public class Main {
   public static void main(String[] args) {
     String alpha = "abcdefghijklmnopqrstuvwxyz";
@@ -56,9 +52,6 @@ public class Main {
           else {
             tries += 1;
             System.out.printf("\nSorry, that's incorrect. %d tries remaining.", (strikes - tries));
-            if (tries >= strikes) {
-              break;
-            }
           }
         } 
         else {
