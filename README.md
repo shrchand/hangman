@@ -1,5 +1,5 @@
 # hangman
-Terminal based hangman game in Java.
+Command-line hangman game in Java.
 
 
 The player first decides whether they would like the word they are guessing to be easy or hard.
